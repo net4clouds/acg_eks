@@ -16,36 +16,36 @@ data "aws_iam_policy" "eks-node" {
 #    name   = "name"
 #    values = ["myami-*"]
 #  }
+#
+#data "aws_ami" "vpn-ami" {
+#  most_recent      = true
+#  name_regex       = "^centos-openvpn-*"
+#  owners           = ["self"]
+#}
 
-data "aws_ami" "vpn-ami" {
-  most_recent      = true
-  name_regex       = "^centos-openvpn-*"
-  owners           = ["self"]
-}
+#data "aws_ami" "centos7-ami" {
+#  most_recent      = true
+#  name_regex       = "^centos_base-*"
+#  owners           = ["self"]
+#}
 
-data "aws_ami" "centos7-ami" {
-  most_recent      = true
-  name_regex       = "^centos_base-*"
-  owners           = ["self"]
-}
-
-data "aws_ami" "master-ami" {
-  most_recent      = true
-  name_regex       = "^master-*"
-  owners           = ["self"]
-}
-
-data "aws_instance" "master" {
-  filter {
-    name   = "tag:Name"
-    values = ["master"]
-  }
-}  
+#data "aws_ami" "master-ami" {
+#  most_recent      = true
+#  name_regex       = "^master-*"
+#  owners           = ["self"]
+#}
+#
+#data "aws_instance" "master" {
+#  filter {
+#    name   = "tag:Name"
+#    values = ["master"]
+#  }
+#}  
 	
-data "aws_vpc_endpoint_service" "s3" {
-  service      = "s3"
-  service_type = "Gateway"
-}
+#data "aws_vpc_endpoint_service" "s3" {
+#  service      = "s3"
+#  service_type = "Gateway"
+#}
 
 #data "aws_route_table" "rt_local" {
 #  filter {
