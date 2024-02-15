@@ -61,6 +61,6 @@ data "aws_iam_policy" "eks-node" {
 #  }
 #}
 
-data "aws_ec2_local_gateway" "local" {
-  id = var.local_gateway_id
-}
+#data "aws_ec2_local_gateway" "local" {
+#  id = var.local_gateway_id
+#}
