@@ -2,6 +2,10 @@ data "aws_availability_zones" "azs" {
   state = "available"
 }
 
+data "aws_iam_policy" "eks-node" {
+  arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
+}
+
 
 #data "aws_ami" "centos8" {
 #  most_recent      = true
