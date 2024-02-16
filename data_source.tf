@@ -2,8 +2,50 @@ data "aws_availability_zones" "azs" {
   state = "available"
 }
 
-data "aws_iam_policy" "eks-node" {
+data "aws_iam_policy" "AmazonEKSClusterPolicy" {
   arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
+}
+
+data "aws_iam_policy" "AmazonEKSVPCResourceController" {
+  arn = "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"
+}
+
+data "aws_iam_policy" "AmazonEC2ContainerRegistryReadOnly" {
+  arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
+}
+
+data "aws_iam_policy" "AmazonEKS_CNI_Policy" {
+  arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
+}
+
+data "aws_iam_policy" "AmazonEKSWorkerNodePolicy" {
+  arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
+}
+
+data "aws_iam_policy" "AmazonSSMManagedInstanceCore" {
+  arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+}
+
+data "aws_iam_policy_document" "assume_role_eks" {
+  statement {
+    effect = "Allow"
+    principals {
+      type        = "Service"
+      identifiers = ["eks.amazonaws.com"]
+    }
+    actions = ["sts:AssumeRole"]
+  }
+}
+
+data "aws_iam_policy_document" "assume_role_ec2" {
+  statement {
+    effect = "Allow"
+    principals {
+      type        = "Service"
+      identifiers = ["ec2.amazonaws.com"]
+    }
+    actions = ["sts:AssumeRole"]
+  }
 }
 
 
