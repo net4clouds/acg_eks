@@ -5,7 +5,6 @@ resource "aws_iam_policy" "eks-CloudWatchMetrics" {
 
   policy = jsonencode({
     	
- {
     "Version": "2012-10-17",
     "Statement": [
         {
@@ -16,7 +15,6 @@ resource "aws_iam_policy" "eks-CloudWatchMetrics" {
             "Effect": "Allow"
         }
     ]
- }
   })
 }
 
@@ -26,7 +24,7 @@ resource "aws_iam_policy" "eks-ELB" {
   description = "Access to ELB"
 
   policy = jsonencode({
- {
+ 
     "Version": "2012-10-17",
     "Statement": [
         {
@@ -39,6 +37,5 @@ resource "aws_iam_policy" "eks-ELB" {
             "Effect": "Allow"
         }
     ]
- }
   }) 
 }  	

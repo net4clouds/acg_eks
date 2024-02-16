@@ -46,6 +46,6 @@ resource "aws_iam_role_policy_attachment" "eks-nd-role-policy3-attachment" {
 
 resource "aws_iam_role_policy_attachment" "eks-nd-role-policy4-attachment" {
   role       = aws_iam_role.eks-NodeInstanceRole.name
-  policy_arn = data.aws_iam_policy.AmazonSSMManagedInstanceCorey.arn
+  policy_arn = data.aws_iam_policy.AmazonSSMManagedInstanceCore.arn
 }
 
