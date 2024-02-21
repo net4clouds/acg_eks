@@ -25,7 +25,7 @@ resource "aws_iam_role_policy_attachment" "eks-cl-role-policy4-attachment" {
 }
 
 resource "aws_iam_role" "eks-NodeInstanceRole" {
-  name = "eks-cluster-ServiceRole"
+  name = "eks-NodeInstanceRole"
   assume_role_policy = data.aws_iam_policy_document.assume_role_ec2.json
 }
 
