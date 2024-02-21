@@ -4,7 +4,7 @@
  # config = {
  #   path = "../lab-terraform-eks-2/terraform.tfstate"
  # }
-}
+#}
 
 data "aws_eks_cluster" "cluster" {
   name = data.terraform_remote_state.eks.outputs.cluster_name
