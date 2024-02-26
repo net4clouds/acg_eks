@@ -4,6 +4,12 @@ resource "aws_iam_role" "eks-cluster-ServiceRole" {
   assume_role_policy = data.aws_iam_policy_document.assume_role_eks.json
 }
 
+resource "aws_iam_role_policy_attachment" "eks-cl-role-policy0-attachment" {
+  role       = aws_iam_role.eks-cluster-ServiceRole.name
+  policy_arn = data.aws_iam_policy.AmazonEKSServicePolicy.arn
+}
+
+
 resource "aws_iam_role_policy_attachment" "eks-cl-role-policy1-attachment" {
   role       = aws_iam_role.eks-cluster-ServiceRole.name
   policy_arn = data.aws_iam_policy.AmazonEKSClusterPolicy.arn

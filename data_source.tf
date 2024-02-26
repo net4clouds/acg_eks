@@ -26,6 +26,11 @@ data "aws_iam_policy" "AmazonSSMManagedInstanceCore" {
   arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }
 
+data "aws_iam_policy" "AmazonEKSServicePolicy" {
+  arn = "arn:aws:iam::aws:policy/AmazonEKSServicePolicy"
+}
+
+
 data "aws_iam_policy_document" "assume_role_eks" {
   statement {
     effect = "Allow"
