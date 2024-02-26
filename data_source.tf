@@ -30,6 +30,12 @@ data "aws_iam_policy" "AmazonEKSServicePolicy" {
   arn = "arn:aws:iam::aws:policy/AmazonEKSServicePolicy"
 }
 
+data "aws_iam_policy" "AWSServiceRoleForAmazonEKSNodegroup" {
+   arn = "arn:aws:iam::aws:policy/AWSServiceRoleForAmazonEKSNodegroup"
+} 
+
+
+
 
 data "aws_iam_policy_document" "assume_role_eks" {
   statement {
