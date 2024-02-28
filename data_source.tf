@@ -31,7 +31,7 @@ data "aws_iam_policy" "AmazonEKSServicePolicy" {
 }
 
 data "aws_iam_policy" "AWSServiceRoleForAmazonEKSNodegroup" {
-   arn = "arn:aws:iam::aws:policy/AWSServiceRoleForAmazonEKSNodegroup"
+   arn = "arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForAmazonEKSNodegroup"
 } 
 
 
