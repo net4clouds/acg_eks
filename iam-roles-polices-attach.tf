@@ -15,10 +15,10 @@ resource "aws_iam_role_policy_attachment" "eks-cl-role-policy2-attachment" {
   policy_arn = data.aws_iam_policy.AmazonEKSVPCResourceController.arn
 }
 
-resource "aws_iam_role_policy_attachment" "eks-cl-role-policy3-attachment" {
-  role       = aws_iam_role.eks-cluster-service.name
-  policy_arn = data.aws_iam_policy.AmazonEKSServiceRolePolicy.arn
-}
+#resource "aws_iam_role_policy_attachment" "eks-cl-role-policy3-attachment" {
+#  role       = aws_iam_role.eks-cluster-service.name
+#  policy_arn = data.aws_iam_policy.AmazonEKSServiceRolePolicy.arn
+#}
 
 #resource "aws_iam_role_policy_attachment" "eks-nd-role-policy0-attachment" {
 #  role       = aws_iam_role.eks-node.name
