@@ -1,7 +1,7 @@
 resource "aws_eks_node_group" "ng01" {
   cluster_name    = aws_eks_cluster.cl01.name
   node_group_name = "ng01"
-  node_role_arn   = aws_iam_role.eks-node.arn
+  node_role_arn   = data.aws_iam_role.AWSServiceRoleForAmazonEKSNodegroup.arn
   subnet_ids      = [ aws_subnet.sub_A_in.id, aws_subnet.sub_B_in.id, aws_subnet.sub_C_in.id ]
 
   scaling_config {
