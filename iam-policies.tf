@@ -1,41 +1,21 @@
-resource "aws_iam_policy" "eks-CloudWatchMetrics" {
-  name        = "eks-CloudWatchMetrics"
-  path        = "/"
-  description = "Access to CloudWatchMetrics"
-
-  policy = jsonencode({
-    	
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Action": [
-                "cloudwatch:PutMetricData"
-            ],
-            "Resource": "*",
-            "Effect": "Allow"
-        }
-    ]
-  })
+data "aws_iam_policy_document" "assume_role_eks" {
+  statement {
+    effect = "Allow"
+    principals {
+      type        = "Service"
+      identifiers = ["eks.amazonaws.com"]
+    }
+    actions = ["sts:AssumeRole"]
+  }
 }
 
-resource "aws_iam_policy" "eks-ELB" {
-  name        = "eks-ELB"
-  path        = "/"
-  description = "Access to ELB"
-
-  policy = jsonencode({
- 
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Action": [
-                "ec2:DescribeAccountAttributes",
-                "ec2:DescribeAddresses",
-                "ec2:DescribeInternetGateways"
-            ],
-            "Resource": "*",
-            "Effect": "Allow"
-        }
-    ]
-  }) 
-}  	
+data "aws_iam_policy_document" "assume_role_ec2" {
+  statement {
+    effect = "Allow"
+    principals {
+      type        = "Service"
+      identifiers = ["ec2.amazonaws.com"]
+    }
+    actions = ["sts:AssumeRole"]
+  }
+}

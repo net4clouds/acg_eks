@@ -2,14 +2,6 @@ data "aws_availability_zones" "azs" {
   state = "available"
 }
 
-data "aws_iam_role" "AWSServiceRoleForAmazonEKS" {
-  name = "AWSServiceRoleForAmazonEKS"
-}
-
-data "aws_iam_role" "AWSServiceRoleForAmazonEKSNodegroup" {
-  name = "AWSServiceRoleForAmazonEKSNodegroup"
-}
-
 data "aws_iam_policy" "AmazonEKSClusterPolicy" {
   arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
 }
@@ -38,29 +30,17 @@ data "aws_iam_policy" "AmazonEKSServicePolicy" {
   arn = "arn:aws:iam::aws:policy/AmazonEKSServicePolicy"
 }
 
-
-data "aws_iam_policy_document" "assume_role_eks" {
-  statement {
-    effect = "Allow"
-    principals {
-      type        = "Service"
-      identifiers = ["eks.amazonaws.com"]
-    }
-    actions = ["sts:AssumeRole"]
-  }
+data "aws_iam_policy" "AmazonEKSServiceRolePolicy" {
+  arn = "arn:aws:iam::aws:policy/AmazonEKSServiceRolePolicy"
 }
 
-data "aws_iam_policy_document" "assume_role_ec2" {
-  statement {
-    effect = "Allow"
-    principals {
-      type        = "Service"
-      identifiers = ["ec2.amazonaws.com"]
-    }
-    actions = ["sts:AssumeRole"]
-  }
+data "aws_iam_policy" "AWSServiceRoleForAmazonEKSNodegroup" {
+  arn = "arn:aws:iam::aws:policy/AWSServiceRoleForAmazonEKSNodegroup"
 }
 
+data "aws_iam_policy" "AmazonEKSConnectorServiceRolePolicy" {
+  arn = "arn:aws:iam::aws:policy/AmazonEKSConnectorServiceRolePolicy"
+}
 
 #data "aws_ami" "centos8" {
 #  most_recent      = true
