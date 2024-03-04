@@ -2,13 +2,13 @@ data "aws_availability_zones" "azs" {
   state = "available"
 }
 
-data "aws_iam_role" "AWSServiceRoleForAmazonEKS" {
-  name = "AWSServiceRoleForAmazonEKS"
-}
+#data "aws_iam_role" "AWSServiceRoleForAmazonEKS" {
+#  name = "AWSServiceRoleForAmazonEKS"
+#}
 
-data "aws_iam_role" "AWSServiceRoleForAmazonEKSNodegroup" {
-  name = "AWSServiceRoleForAmazonEKSNodegroup"
-}
+#data "aws_iam_role" "AWSServiceRoleForAmazonEKSNodegroup" {
+#  name = "AWSServiceRoleForAmazonEKSNodegroup"
+#}
 
 data "aws_iam_policy" "AmazonEKSClusterPolicy" {
   arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
