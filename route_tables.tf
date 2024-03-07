@@ -10,7 +10,7 @@ resource "aws_route_table" "rt_internet_access" {
   vpc_id = aws_vpc.main.id
   route {
     cidr_block = var.internet_cidr
-    gateway_id = aws_internet_gateway.main.id
+    gateway_id = aws_nat_gateway.ngw.id
   }
     tags = {
     Name = "rt_internet_access"
