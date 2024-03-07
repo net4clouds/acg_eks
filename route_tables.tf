@@ -16,3 +16,14 @@ resource "aws_route_table" "rt_internet_access" {
     Name = "rt_internet_access"
   }
 }
+
+resource "aws_route_table" "rt_pub_internet_access" {
+  vpc_id = aws_vpc.main.id
+  route {
+    cidr_block = var.internet_cidr
+    gateway_id = aws_internet_gateway.main.id
+  }
+    tags = {
+    Name = "rt_pub_internet_access"
+  }
+}
