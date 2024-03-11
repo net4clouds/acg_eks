@@ -42,7 +42,19 @@ data "aws_vpc" "infra-vpc" {
   id = var.vpc_id
 }
 
+data "aws_subnet" "infra-subnet" {
+  filter {
+    name   = "tag:Name"
+    values = ["infra-subnet-public1-us-east-1a"]
+  }
+}
 
+data "aws_internet_gateway" "infra-igw" {
+  filter {
+    name   = "tag:Name"
+    values = ["infra-igw"]
+  }
+}
 #data "aws_iam_policy" "AmazonEKSServiceRolePolicy" {
 #  arn = "arn:aws:iam::aws:policy/AmazonEKSServiceRolePolicy"
 #}

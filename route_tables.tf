@@ -31,3 +31,18 @@ resource "aws_route_table" "rt_pub_internet_access" {
     Name = "rt_pub_internet_access"
   }
 }
+
+resource "aws_route_table" "rt_internet_infra" {
+  vpc_id = data.aws_vpc.infra-vpc.id
+  route {
+    cidr_block = var.internet_cidr
+    gateway_id = data.aws_internet_gateway.infra-igw.id
+  }
+  route {
+    cidr_block = aws_vpc.main.cidr_block
+    vpc_peering_connection_id = aws_vpc_peering_connection.infra-main.id
+  }
+    tags = {
+    Name = "rt_infra"
+  }
+}
