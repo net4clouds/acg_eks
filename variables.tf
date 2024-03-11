@@ -3,6 +3,10 @@ variable "cidr" {
   description = "VPC network config "
 }
 
+variable "infra-vpc-id" {
+  description = "ID of existing VPC"
+}
+
 variable "sub_A_in_cidr" {
   description = "Subnet zone A internal"
 }

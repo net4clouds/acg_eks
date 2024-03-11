@@ -38,6 +38,11 @@ data "aws_iam_policy" "AmazonEKSServicePolicy" {
   arn = "arn:aws:iam::aws:policy/AmazonEKSServicePolicy"
 }
 
+data "aws_vpc" "infra-vpc" {
+  id = var.vpc_id
+}
+
+
 #data "aws_iam_policy" "AmazonEKSServiceRolePolicy" {
 #  arn = "arn:aws:iam::aws:policy/AmazonEKSServiceRolePolicy"
 #}
