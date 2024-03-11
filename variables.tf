@@ -3,7 +3,7 @@ variable "cidr" {
   description = "VPC network config "
 }
 
-variable "infra-vpc-id" {
+variable "vpc_id" {
   description = "ID of existing VPC"
 }
 

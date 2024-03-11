@@ -3,7 +3,7 @@
 #zoneC = "us-west-2c"
 internet_cidr = "0.0.0.0/0"
 cidr = "10.0.0.0/16"
-infra-vpc-id = "vpc-04760007e80b62ffc"
+vpc_id = "vpc-04760007e80b62ffc"
 sub_A_in_cidr = "10.0.10.0/24"
 sub_B_in_cidr = "10.0.20.0/24"
 sub_C_in_cidr = "10.0.30.0/24"

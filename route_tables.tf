@@ -12,6 +12,10 @@ resource "aws_route_table" "rt_internet_access" {
     cidr_block = var.internet_cidr
     gateway_id = aws_nat_gateway.ngw.id
   }
+  route {
+    cidr_block = data.aws_vpc.infra-vpc.cidr_block
+    vpc_peering_connection_id = aws_vpc_peering_connection.infra-main.id
+  }
     tags = {
     Name = "rt_internet_access"
   }
