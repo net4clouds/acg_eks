@@ -10,10 +10,10 @@ resource "aws_eks_node_group" "ng01" {
     min_size     = 1
   }
 
-  remote_access {
-    source_security_group_ids = [aws_security_group.https-internal.id]
-    ec2_ssh_key = data.aws_key_pair.linux02.id
-  }
+remote_access {
+ source_security_group_ids = [aws_security_group.https-internal.id,aws_security_group.ssh-internal.id]
+ ec2_ssh_key = data.aws_key_pair.linux02.key_name
+ }
 
   update_config {
     max_unavailable = 1
