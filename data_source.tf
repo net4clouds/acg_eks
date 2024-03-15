@@ -55,6 +55,16 @@ data "aws_internet_gateway" "infra-igw" {
     values = ["infra-igw"]
   }
 }
+
+data "aws_key_pair" "linux02" {
+  key_name = "linux02"
+ 
+  filter {
+    name   = "tag:Name"
+    values = ["linux02"]
+  }
+}
+
 #data "aws_iam_policy" "AmazonEKSServiceRolePolicy" {
 #  arn = "arn:aws:iam::aws:policy/AmazonEKSServiceRolePolicy"
 #}

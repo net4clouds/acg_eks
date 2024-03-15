@@ -3,12 +3,16 @@ resource "aws_eks_node_group" "ng01" {
   node_group_name = "ng01"
   node_role_arn   = aws_iam_role.eks-node.arn
   subnet_ids      = [ aws_subnet.sub_A_in.id, aws_subnet.sub_B_in.id, aws_subnet.sub_C_in.id ]
-  security_group_ids = [aws_security_group.https-internal.id]
 
   scaling_config {
     desired_size = 1
     max_size     = 2
     min_size     = 1
+  }
+
+  remote_access {
+    source_security_group_ids = [aws_security_group.https-internal.id]
+    ec2_ssh_key = data.aws_key_pair.linux02.id
   }
 
   update_config {
