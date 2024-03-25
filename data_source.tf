@@ -65,6 +65,10 @@ data "aws_key_pair" "linux02" {
   }
 }
 
+data "tls_certificate" "eks_cluster_oidc" {
+  url = aws_eks_cluster.cl01.identity.0.oidc.0.issuer
+}
+
 #data "aws_iam_policy" "AmazonEKSServiceRolePolicy" {
 #  arn = "arn:aws:iam::aws:policy/AmazonEKSServiceRolePolicy"
 #}
