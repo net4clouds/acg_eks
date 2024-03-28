@@ -30,12 +30,13 @@ data "aws_iam_policy_document" "assume_role_albcontrol" {
     actions = ["sts:AssumeRoleWithWebIdentity"]
     condition {
       test     = "StringEquals"
-      variable = aws_eks_cluster.cl01.identity.0.oidc.0.issuer":aud"
+      variable = join(":", [(split("//", aws_eks_cluster.cl01.identity.0.oidc.0.issuer)[1]), var.aud])
       values   = ["sts.amazonaws.com"]
     }
     condition {
       test     = "StringEquals"
-      variable = aws_eks_cluster.cl01.identity.0.oidc.0.issuer":sub"
+      variable = join(":", [(split("//", aws_eks_cluster.cl01.identity.0.oidc.0.issuer)[1]), var.sub])
+      
       values   = ["system:serviceaccount:kube-system:aws-load-balancer-controller"]
     }
   }

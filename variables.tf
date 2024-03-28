@@ -1,4 +1,3 @@
-
 variable "cidr" {
   description = "VPC network config "
 }
@@ -77,5 +76,13 @@ variable "spot_price" {
 
 variable "local_gateway_id" {
   default = "local"
+}
+
+variable "aud" {
+  default = "aud"
+}
+
+variable "sub" {
+  default = "sub"
 }
 
