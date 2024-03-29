@@ -3,7 +3,7 @@ resource "aws_eks_node_group" "ng01" {
   node_group_name = "ng01"
   node_role_arn   = aws_iam_role.eks-node.arn
   subnet_ids      = [ aws_subnet.sub_A_in.id, aws_subnet.sub_B_in.id, aws_subnet.sub_C_in.id ]
-  instance_types  = "t2.micro"
+  instance_types  = ["t2.micro"]
   
   scaling_config {
     desired_size = 1
