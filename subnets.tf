@@ -4,6 +4,7 @@ resource "aws_subnet" "sub_A_in" {
   availability_zone = data.aws_availability_zones.azs.names[0]
     tags = {
     Name = "sub_A_in"
+	kubernetes.io/role/internal-elb = "1"
   }
 }
 resource "aws_subnet" "sub_B_in" {
@@ -12,6 +13,7 @@ resource "aws_subnet" "sub_B_in" {
   availability_zone = data.aws_availability_zones.azs.names[1] 
     tags = {
     Name = "sub_B_in"
+	kubernetes.io/role/internal-elb = "1"
   }
 }
 resource "aws_subnet" "sub_C_in" {
@@ -20,6 +22,7 @@ resource "aws_subnet" "sub_C_in" {
   availability_zone = data.aws_availability_zones.azs.names[2] 
     tags = {
     Name = "sub_C_in"
+	kubernetes.io/role/internal-elb = "1"
   }
 }
 resource "aws_subnet" "sub_A_pub" {
@@ -28,6 +31,7 @@ resource "aws_subnet" "sub_A_pub" {
   availability_zone = data.aws_availability_zones.azs.names[0] 
     tags = {
     Name = "sub_A_pub"
+	kubernetes.io/role/elb = "1"
   }
 }
 resource "aws_subnet" "sub_B_pub" {
@@ -36,6 +40,7 @@ resource "aws_subnet" "sub_B_pub" {
   availability_zone = data.aws_availability_zones.azs.names[1]
     tags = {
     Name = "sub_B_pub"
+	kubernetes.io/role/elb = "1"
   }
 }
 resource "aws_subnet" "sub_C_pub" {
@@ -44,5 +49,6 @@ resource "aws_subnet" "sub_C_pub" {
   availability_zone = data.aws_availability_zones.azs.names[2] 
     tags = {
     Name = "sub_C_pub"
+	kubernetes.io/role/elb = "1"
   }
 }
